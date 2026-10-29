@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.isetr.tp5app.databinding.FragmentAjoutBinding
-import com.isetr.tp5app.ui.home.HomeViewModel
 
 class AjoutFragment : Fragment() {
 
@@ -23,16 +21,13 @@ class AjoutFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val viewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentAjoutBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textAjout
-        viewModel.text.observe(viewLifecycleOwner) {
-            textView.text = "Ajout d\'un Etudiant"
-        }
+        textView.text = "Ajout d\'un Etudiant"
+
         return root
     }
 
