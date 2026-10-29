@@ -1,4 +1,4 @@
-package com.isetr.tp5app.ui.slideshow
+package com.isetr.tp5app.ui.liste
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.isetr.tp5app.databinding.FragmentSlideshowBinding
+import com.isetr.tp5app.databinding.FragmentListeBinding
+import com.isetr.tp5app.ui.home.HomeViewModel
 
-class SlideshowFragment : Fragment() {
+class ListeFragment : Fragment() {
 
-    private var _binding: FragmentSlideshowBinding? = null
+    private var _binding: FragmentListeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,16 +23,16 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+       val viewModel =
+           ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
+        _binding = FragmentListeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        val textView: TextView = binding.textListe
+        textView.text = "Liste des Etudiants"
+       // viewModel.text.observe(viewLifecycleOwner) {
+          //  textView.text = "Liste des Etudiants"  }
         return root
     }
 
